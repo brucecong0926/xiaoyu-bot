@@ -1,0 +1,98 @@
+{
+  "name": "xiaoyu-bot",
+  "version": "0.5.0",
+  "description": "小鱼bot：给 DeepSeek Harness 用的一支长期在线的 Bot 团队（主 Bot、Bot 之间互发消息、群聊协作）",
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "dsh",
+    "bot",
+    "multi-agent",
+    "xiaoyu-bot"
+  ],
+  "homepage": "https://github.com/Fei2411/DS-Bot#readme",
+  "bugs": {
+    "url": "https://github.com/Fei2411/DS-Bot/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fei2411/DS-Bot.git",
+    "directory": "ds-bot"
+  },
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./web-search": "./web-search.js",
+    "./package.json": "./package.json",
+    "./locale/*": "./locale/*",
+    "./web-search/locale/*": "./locale/web-search/*"
+  },
+  "files": [
+    "index.js",
+    "src/host/",
+    "src/shared/",
+    "src/office/",
+    "client.js",
+    "link.js",
+    "office.js",
+    "web-search.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "locale/*.json",
+    "locale/web-search/*.json",
+    "NOTICE"
+  ],
+  "scripts": {
+    "build": "node scripts/build-client.mjs && node scripts/build-link.mjs",
+    "test": "node --import ./test/harness-resolve.mjs --test --test-timeout=120000 --test-force-exit \"test/*.test.js\"",
+    "lint": "node scripts/lint.mjs",
+    "harness": "npm install --prefix dev/harness --legacy-peer-deps=false --no-package-lock --no-fund --no-audit",
+    "check": "sh dev/check.sh"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/dsh-llm": "*",
+    "@deepseek-ai/dsh-scope": "*",
+    "@deepseek-ai/dsh-tools": "*",
+    "@deepseek-ai/dsh-web": "*"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "devDependencies": {
+    "@xmldom/xmldom": "0.9.12",
+    "esbuild": "0.28.2",
+    "qrcode-generator": "2.0.4"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/client": "2.4.0",
+    "deep-view": "0.1.2",
+    "imapflow": "2.9.1",
+    "jpeg-js": "0.4.4",
+    "mailparser": "3.12.4",
+    "nodemailer": "10.2.1",
+    "playwright-core": "1.64.1",
+    "pngjs": "7.0.0",
+    "ws": "8.18.3"
+  },
+  "bundledDependencies": [
+    "@modelcontextprotocol/client",
+    "deep-view",
+    "imapflow",
+    "jpeg-js",
+    "mailparser",
+    "nodemailer",
+    "playwright-core",
+    "pngjs",
+    "ws"
+  ]
+}
