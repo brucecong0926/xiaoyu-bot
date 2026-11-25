@@ -10,3 +10,6 @@ Thumbs.db
 .env
 .env.*
 secrets.json
+
+# 本地打包产物
+*.tgz

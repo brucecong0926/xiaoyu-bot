@@ -39,7 +39,6 @@
     "office.js",
     "web-search.js",
     "cordis.patch.yml",
-    "README.md",
     "LICENSE",
     "locale/*.json",
     "locale/web-search/*.json",
